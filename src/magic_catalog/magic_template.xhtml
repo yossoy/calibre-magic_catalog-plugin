@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="${xmlns}$" lang="${languages}$" xml:lang="${languages}$">
+  <head>
+    <title>${title_str}$</title>
+    <meta name="catalog description header" http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="magic_stylesheet.css" media="screen" />
+  </head>
+  <body>
+    <a id="${book_id}$"></a>
+    <p class="title">${title}$</p>
+    ${if series:}$
+    <p class="series_id"><a class="series_id">${series}$ [${series_index}$]</a></p>
+    ${:endif}$
+    <hr class="header_divider" />
+    <p class="author">by <a class="author" ${if author_url:}$href="${author_url}$"${:endif}$>${author}$</a></p>
+    ${if genres:}$<p class="genres">
+	${for idx, genre, url in genres:}$
+		[<a href="${url}$">${genre}$</a>]${if idx < len(genres)-1:}$ &middot; ${:endif}$
+	${:endfor}$
+    </p>${:endif}$
+    ${
+def calc_rowspan():
+	ret = 7
+	if publisher:
+		ret += 1
+	if format_urls:
+		ret += 1
+	return ret
+}$
+    <table width="100%" border="0">
+      <tr>
+	<td colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+	<td class="thumbnail" rowspan="${emit(calc_rowspan())}$"><img src="${thumb_src}$" alt="cover thumbnail" /></td>
+	<td class="empty">$nbsp;</td>
+      </tr>
+      <tr>
+	<td class="empty">$nbsp;</td>
+      </tr>
+      ${if publisher:}$<tr>
+	<td class="publisher">${publisher}$</td>
+      </tr>${:endif}$
+      <tr>
+	<td class="date">${pubyear}$</td>
+      </tr>
+      <tr>
+	<td class="rating">${rating}$</td>
+      </tr>
+      <tr>
+	<td class="notes">${note_source}$: ${note_content}$</td>
+      </tr>
+      ${if format_urls:}$<tr>
+	<td>
+	  ${for idx, format, url in format_urls:}$
+		<p class="downloaditem">&middot; [<a class="downloadlink" href="${url}$">Download ${format}$</a>]</p>
+	  ${:endfor}$
+	</td>
+      </tr>${:endif}$
+      <tr>
+	<td colspan="2">&nbsp;</td>
+      </tr>	  
+    </table>
+    
+    <hr class="description_divider" />
+    <div class="description">${comments}$</div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="${xmlns}$" lang="${languages}$" xml:lang="${languages}$">
+  <head>
+    <title>${title_str}$</title>
+    <meta name="catalog description header" http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="magic_stylesheet.css" media="screen" />
+  </head>
+  <body>
+    <div class="header">
+      <a id="section_start"></a>
+      <p class="title">${title_str}$</p>
+    </div>
+    ${
+def to_pubyearstr(y):
+	if y:
+		return " (%s)" % y
+	return ""    
+}$
+    <hr class="header_divider"/>
+    <div class="contents">
+      ${for a in authors:}$
+      <a id="${a['id']}$"></a>
+      <div class="author">
+	<p class="author_name">${a['name']}$</p>
+	${for s in a['series']:}$
+	<div class="author_series">
+	  <h3><a href="${s['url']}$">${s['name']}$</a></h3>
+	  <ul class="author_series_books">
+	    ${for b in s['books']:}$
+	    <li class="book_item"><a href="${b['url']}$">[${b['series_idx']}$] ${b['title']}$${emit(to_pubyearstr(b['pubyear']))}$</a></li>
+	    ${:endfor}$
+	  </ul>
+	</div>
+	${:endfor}$
+	${if a.has_key('books'):}$
+	<ul class="author_books">
+	  ${for b in a['books']:}$
+	  <li class="book_item"><a href="${b['url']}$">${b['title']}$${emit(to_pubyearstr(b['pubyear']))}$</a></li>
+	  ${:endfor}$
+	</ul>
+	${:endif}$
+      </div>
+      ${:endfor}$
+    </div>
+  </body>
+</html>

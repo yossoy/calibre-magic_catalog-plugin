@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="${xmlns}$" lang="${languages}$" xml:lang="${languages}$">
+  <head>
+    <title>${title_str}$</title>
+    <meta name="catalog description header" http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="magic_stylesheet.css" media="screen" />
+  </head>
+  <body>
+    <div class="header">
+      <a id="section_start"></a>
+      <p class="title">${title_str}$</p>
+    </div>
+    ${
+def to_pubyearstr(y):
+	if y:
+		return " (%s)" % y
+	return ""    
+}$
+    <hr class="header_divider"/>
+    <div class="contents">
+      ${for s in serieses:}$
+      <a id="${s['id']}$"></a>
+      <div class="series">
+	<p class="series_name">${s['name']}$</p>
+	${if s.has_key('books'):}$
+	<ul class="series_books">
+	  ${for b in s['books']:}$
+	  <li class="book_item"><a href="${b['url']}$">[${b['series_index']}$] ${b['title']}$${emit(to_pubyearstr(b['pubyear']))}$</a> &middot; <a class="book_author" href="${b['author_url']}$"><small>${b['author']}$</small></a></li>
+	  ${:endfor}$
+	</ul>
+	${:endif}$
+      </div>
+      ${:endfor}$
+    </div>
+  </body>
+</html>

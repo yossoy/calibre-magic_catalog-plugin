@@ -1,0 +1,161 @@
+div.author, div.series {
+    page-break-inside:avoid;
+}
+
+p.series {
+    clear:both;
+	font-style:italic;
+	margin-top:0.10em;
+	margin-bottom:0em;
+	margin-left:1.5em;
+	text-align:left;
+	text-indent:-1.25em;
+	}
+
+p.title  {
+    margin-top:0em;
+    margin-bottom:0em;
+    text-align:center;
+    font-style:italic, bold;
+    font-size:xx-large;
+}
+
+/* Link to Series */	
+a.series_id {
+    font-style:normal;
+    font-size:large;
+}
+
+/* Various dividers */
+hr.annotations_divider {
+    width:50%;
+    margin-left:1em;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+hr.description_divider {
+    width:90%;
+    margin-left:5%;
+    border-top: solid white 0px;
+    border-right: solid white 0px;
+    border-bottom: solid black 1px;
+    border-left: solid white 0px;
+}
+
+hr.header_divider {
+    width:100%;
+    border-top: solid white 1px;
+    border-right: solid white 0px;
+    border-bottom: solid black 2px;
+    border-left: solid white 0px;
+}
+
+hr.merged_comments_divider {
+    width:80%;
+    margin-left:10%;
+    border-top: solid white 0px;
+    border-right: solid white 0px;
+    border-bottom: dashed gray 2px;
+    border-left: solid white 0px;
+}
+
+/* Author name */
+p.author {
+    clear:both;
+    font-size:large;
+    margin-top:0em;
+    margin-bottom:0.1em;
+    text-align: center;
+    text-indent: 0em;
+}
+
+/* Formats */
+p.formats {
+    font-size:90%;
+    margin-top:0em;
+    margin-bottom:0.5em;
+    text-align: left;
+    text-indent: 0.0in;
+}
+
+/* Genres */
+p.genres {
+    font-style:normal;
+    margin-top:0.5em;
+    margin-bottom:0em;
+    text-align: left;
+    text-indent: 0.0in;
+}
+
+
+/* Series name */
+p.series_id {
+    margin-top:0em;
+    margin-bottom:0em;
+    text-align:center;
+}
+
+/* Publisher, Publication Date */
+td.publisher, td.date {
+    font-weight:bold;
+    text-align:center;
+}
+
+/* Rating */
+td.rating{
+    text-align:center;
+}
+
+/* Additional notes */
+td.notes {
+    font-size: 100%;
+    text-align:center;
+}
+
+/*
+**   Thumbnail
+*/
+td.thumbnail img {
+    -webkit-box-shadow: 4px 4px 12px #999;
+    border-width: 1px;
+    border-style: solid;
+}
+
+/*
+**   Comments
+*/
+div.description {
+    margin: 0 0 0 0;
+    text-indent: 1em;
+}
+
+div.description > p:first-child {
+    margin: 0 0 0 0;
+    text-indent: 0em;
+}
+
+p.author_name {
+    margin_top: 0.5em;
+    text-align: left;
+    font-size: large;
+    font-style: bold;
+}
+p.series_name {
+    margin_top: 0.5em;
+    text-align: left;
+    font-size: large;
+    font-style: bold;
+}
+p.author_series {
+    margin_top: 0.5em;
+    text-align: left;
+    font-style: bold;
+}
+li.book_item {
+    line-height: 120%;
+}
+
+p.downloaditem {
+    line_height: 120%;
+}
